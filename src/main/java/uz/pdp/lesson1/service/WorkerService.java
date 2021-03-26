@@ -48,13 +48,19 @@ public class WorkerService {
         worker.setName(workerDto.getName());
         worker.setPhoneNumber(workerDto.getPhoneNumber());
 
-        Optional<Address> optionalAddress = addressRepository.findById(workerDto.getAddressId());
-        if (!optionalAddress.isPresent()){
-            return new Response("Address id not found", false);
-        }
-        Address address = optionalAddress.get();
+//        Optional<Address> optionalAddress = addressRepository.findById(workerDto.getAddressId());
+//        if (!optionalAddress.isPresent()){
+//            return new Response("Address id not found", false);
+//        }
+//        Address address = optionalAddress.get();
 
-        worker.setAddress(address);
+        Address address = new Address();
+        address.setStreet(workerDto.getStreet());
+        address.setHomeNumber(workerDto.getHomeNumber());
+
+        Address savedAddress = addressRepository.save(address);
+
+        worker.setAddress(savedAddress);
 
         Optional<Department> optionalDepartment = departmentRepository.findById(workerDto.getDepartmentId());
         if (!optionalDepartment.isPresent()){
@@ -79,12 +85,19 @@ public class WorkerService {
         worker.setName(workerDto.getName());
         worker.setPhoneNumber(workerDto.getPhoneNumber());
 
-        Optional<Address> optionalAddress = addressRepository.findById(workerDto.getAddressId());
-        if (!optionalAddress.isPresent()){
-            return new Response("Address id not found", false);
-        }
-        Address address = optionalAddress.get();
-        worker.setAddress(address);
+//        Optional<Address> optionalAddress = addressRepository.findById(workerDto.getAddressId());
+//        if (!optionalAddress.isPresent()){
+//            return new Response("Address id not found", false);
+//        }
+//        Address address = optionalAddress.get();
+
+        Address address = new Address();
+        address.setStreet(workerDto.getStreet());
+        address.setHomeNumber(workerDto.getHomeNumber());
+
+        Address savedAddress = addressRepository.save(address);
+
+        worker.setAddress(savedAddress);
 
         Optional<Department> optionalDepartment = departmentRepository.findById(workerDto.getDepartmentId());
         if (!optionalDepartment.isPresent()){

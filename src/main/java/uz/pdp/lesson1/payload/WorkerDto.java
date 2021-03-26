@@ -25,4 +25,10 @@ public class WorkerDto {
 
     @NotNull(message = "Department bo'sh bo'lmasligi kerak")
     private Integer departmentId;
+
+    @NotNull(message = "Street bo'sh bo'lmasligi kerak")
+    private String street;
+
+    @NotNull(message = "homeNumber bo'sh bo'lmasligi kerak")
+    private String homeNumber;
 }
