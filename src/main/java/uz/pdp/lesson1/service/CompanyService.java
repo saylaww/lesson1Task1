@@ -45,13 +45,18 @@ public class CompanyService {
         company.setCorpName(companyDto.getCorpName());
         company.setDirectorName(companyDto.getDirectorName());
 
-        Optional<Address> optionalAddress = addressRepository.findById(companyDto.getAddressId());
-        if (!optionalAddress.isPresent()){
-            return new Response("Address id not found", false);
-        }
-        Address addressDb = optionalAddress.get();
+//        Optional<Address> optionalAddress = addressRepository.findById(companyDto.getAddressId());
+//        if (!optionalAddress.isPresent()){
+//            return new Response("Address id not found", false);
+//        }
 
-        company.setAddress(addressDb);
+        Address address = new Address();
+        address.setStreet(companyDto.getStreet());
+        address.setHomeNumber(companyDto.getHomeNumber());
+
+        Address savedAddress = addressRepository.save(address);
+
+        company.setAddress(savedAddress);
 
         companyRepository.save(company);
 

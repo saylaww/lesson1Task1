@@ -20,4 +20,10 @@ public class CompanyDto {
 
     @NotNull(message = "Address bo'sh bo'lmasligi kerak")
     private Integer addressId;
+
+    @NotNull(message = "Street bo'sh bo'lmasligi kerak")
+    private String street;
+
+    @NotNull(message = "homeNumber bo'sh bo'lmasligi kerak")
+    private String homeNumber;
 }
